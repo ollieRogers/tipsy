@@ -1,0 +1,23 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-react-hooks"
+  ],
+  "jsRules": {},
+  "rules": {
+    "quotemark": [true, "single", "jsx-double"],
+    "semicolon": [true, "never"],
+    "object-literal-sort-keys": false,
+    "member-access": false,
+    "jsx-boolean-value": [true, "never"],
+    "jsx-no-multiline-js": false,
+    "interface-name" : [true, "never-prefix"],
+    "jsx-no-lambda": false,
+    "no-var-requires": false,
+    "class-name": false,
+    "object-literal-key-quotes": false
+  },
+  "rulesDirectory": []
+}
