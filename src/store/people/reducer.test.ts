@@ -1,4 +1,4 @@
-import { peopleReducer, peopleSelector } from './reducer'
+import { peopleReducer, peopleSelector, personByIdSelector } from './reducer'
 import { ADD_PERSON, DELETE_PERSON } from './types'
 import { StateShape } from '../../types/index'
 import { PersonAction } from './actions'
@@ -73,6 +73,13 @@ describe('people reducer', () => {
           people: [person1]
         } as StateShape)
       ).toEqual([person1])
+    })
+  })
+
+  describe('peopleByIdSelector', () => {
+    const personFilter = personByIdSelector({people: [person1, person2]} as StateShape)
+    it('returns person by id', () => {
+      expect(personFilter('person-id-24')).toEqual([person2])
     })
   })
 

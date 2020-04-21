@@ -22,7 +22,6 @@ export const peopleReducer = (state: Person[] = initialState.people, action: Per
 
 export const peopleSelector = (state: StateShape) => state.people
 
-// TODO: test
 export const personByIdSelector = createSelector(
   peopleSelector,
   (people) => memoize(
