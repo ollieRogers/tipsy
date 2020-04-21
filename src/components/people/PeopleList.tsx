@@ -3,18 +3,10 @@ import { useSelector } from 'react-redux'
 
 import { Person } from '../../types'
 import DeletePersonButton from './DeletePersonButton'
-// import {
-//   billBreakDownByPersonSelector,
-// } from '../../store/bill/reducer'
-// import { formatCurrency } from '../../util/formatCurrency'
 import { peopleSelector } from '../../store/people/reducer'
 import { Box } from 'grommet'
 
 const PeopleListItem = ({ person }: { person: Person }) => {
-
-  // const billBreakdownFilter = useSelector(billBreakDownByPersonSelector)
-  // const { total, tip } = billBreakdownFilter(person.id)
-
   return (
     <Box
       key={person.id}

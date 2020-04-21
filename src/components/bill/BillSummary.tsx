@@ -12,7 +12,8 @@ export const BillSummary = () => {
 
   return (
     <>
-      <Box round="medium" elevation="large"  pad="medium">
+      <Box round="medium" elevation="small"  pad="medium">
+        <Text color="brand" weight="bold">Everything</Text>
         <Text size="medium" margin={{bottom:'xsmall'}}>
           Items: <Text weight="bold">£{formatCurrency(billItemsTotal)}</Text>
         </Text>
@@ -21,10 +22,11 @@ export const BillSummary = () => {
           Tip @ <Text weight="normal">{serviceChargePerc}%</Text>:
           <Text weight="bold"> £{formatCurrency(serviceChargeValue)}</Text>
         </Text>
-
-        <Text size="medium">
-          Total (inc tip): <Text weight="bold">£{formatCurrency(subtotal)}</Text>
-        </Text>
+        <Box margin={{top:'small'}} pad={{top:'small'}} border="top">
+          <Text color="brand" size="medium">
+            Total (inc tip): <Text weight="bold">£{formatCurrency(subtotal)}</Text>
+          </Text>
+        </Box>
       </Box>
     </>
   )

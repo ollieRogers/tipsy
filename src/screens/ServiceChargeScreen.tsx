@@ -10,7 +10,6 @@ export const ServiceChargeScreen = () => {
       <Heading alignSelf="center">
         Add a tip
       </Heading>
-      <Text>RAG buttons 0. 10%. 15%. 20%. with manual overide</Text>
       <ServiceChargeForm/>
     </Box>
   )

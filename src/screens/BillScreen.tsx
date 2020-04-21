@@ -10,11 +10,8 @@ import { formatCurrency } from '../util/formatCurrency'
 export const BillScreen = () => {
   const items = useSelector(billItemsSelector)
   const billItemsTotal = useSelector(billSubtotalSelector)
-
   return (
-    <Box
-      animation="fadeIn"
-    >
+    <Box animation="fadeIn">
       <Heading alignSelf="center">
         Bill
         <Text>

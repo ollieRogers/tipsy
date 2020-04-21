@@ -2,11 +2,16 @@ import React from 'react'
 import { Box, Grommet, Grid, Button } from 'grommet'
 import { Navigation } from '../navigation'
 import { useHistory } from 'react-router-dom'
+import styled from 'styled-components'
 
 interface GridProps {
   children: JSX.Element
 }
 
+const StyledFooter = styled(Box)`
+  position: fixed;
+  bottom: 0;
+`
 // https://github.com/grommet/grommet/wiki/Grommet-v2-theming-documentation
 const theme = {
   global: {
@@ -27,20 +32,21 @@ export const Layout = (props: GridProps) => {
   const history = useHistory()
   const handleClick = (path: string) => () => history.push(path)
   return (
-    <Grommet theme={theme} full>
+    <Grommet theme={theme}>
       <Grid fill rows={['auto', 'flex', 'auto']}>
         <Box align="center" tag="header" background="brand" pad="medium">
           <Button onClick={handleClick('/')}>Tipsy</Button>
         </Box>
 
-        <Box background="light-1" pad="medium">
+        <Box background="light-1" pad="medium" >
           {children}
         </Box>
 
-        <Box tag="footer">
+        <StyledFooter tag="footer">
           <Navigation />
-        </Box>
+        </StyledFooter>
       </Grid>
+
     </Grommet>
 
   )

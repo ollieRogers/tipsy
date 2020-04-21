@@ -1,19 +1,21 @@
 
 import * as React from 'react'
-import {Box, Heading} from 'grommet'
+import { Box, Heading, Button } from 'grommet'
 import { BillSummary } from '../components/bill/BillSummary'
-import { Link } from 'react-router-dom'
-
+import PersonalBreakdown from '../components/bill/PersonalBreakdown'
+import { useHistory } from 'react-router-dom'
 
 export const SummaryScreen = () => {
+  const history = useHistory()
   return (
-    <Box
-      animation="fadeIn"
-    >
+    <Box animation="fadeIn">
       <Heading alignSelf="center">Pay up!</Heading>
-      <Link to="/service">TIP </Link>
       <BillSummary />
-    </Box>
+      <Box pad={{top:'medium'}}>
+        <Button size="medium" plain={false} onClick={() => history.push('/service')}>Change tip %</Button>
+      </Box>
+      <PersonalBreakdown />
+    </Box >
   )
 }
 

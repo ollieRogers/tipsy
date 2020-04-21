@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 import { useSelector } from 'react-redux'
 import { Box, TextInput, Button, FormField } from 'grommet'
-import { Update } from 'grommet-icons'
+import { Update, Previous } from 'grommet-icons'
 
 import { SERVICE_CHARGE } from '../../constants/fieldNames'
 import { updateServiceCharge } from '../../store/bill/actions'
@@ -57,8 +57,20 @@ export const ServiceChargeForm = () => {
         </FormField>
         <Box
           margin={{ top: 'medium' }}
-          gap="small"
+          direction="row"
+          gap="medium"
+          pad="medium"
+          width="medium"
+          align="center"
+          justify="between"
         >
+          <Button
+            label="back"
+            size="large"
+            icon={<Previous/>}
+            onClick={() => history.push('/summary')}
+            plain={false}
+          />
           <Button
             label="update"
             size="large"
