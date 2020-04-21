@@ -59,8 +59,8 @@ export const billBreakDownByPersonSelector = createSelector(
   serviceChargePercSelector,
   (items, serviceChargePerc) => memoize(
     (personId: string) => {
-      const sumThis = items.filter(item => item.personId === personId)
-      const total = sumThis.reduce((acc, item) => acc + item.price, 0)
+      const sumItems = items.filter(item => item.personId === personId)
+      const total = sumItems.reduce((acc, item) => acc + item.price, 0)
       const tip = (total * (serviceChargePerc / 100)) || 0
       return {
         total,
