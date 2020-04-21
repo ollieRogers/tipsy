@@ -1,8 +1,8 @@
+import { Box, Button, Grid, Grommet } from 'grommet'
 import React from 'react'
-import { Box, Grommet, Grid, Button } from 'grommet'
-import { Navigation } from '../navigation'
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+import { Navigation } from '../navigation'
 
 interface GridProps {
   children: JSX.Element
@@ -38,7 +38,7 @@ export const Layout = (props: GridProps) => {
           <Button onClick={handleClick('/')}>Tipsy</Button>
         </Box>
 
-        <Box background="light-1" pad="medium" >
+        <Box height="100%" pad="medium" >
           {children}
         </Box>
 

@@ -13,4 +13,3 @@ it('renders without crashing', () => {
 
   ReactDOM.render(<Provider store={store}><Root store={mockStore as any} /></Provider>, div)
 })
-

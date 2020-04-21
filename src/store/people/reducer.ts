@@ -1,10 +1,10 @@
-import { PersonAction } from './actions'
-import { Person, StateShape } from '../../types'
-import { ADD_PERSON, DELETE_PERSON } from './types'
 import update from 'immutability-helper'
-import { initialState } from '../initialState'
 import { memoize } from 'lodash'
 import { createSelector } from 'reselect'
+import { Person, StateShape } from '../../types'
+import { initialState } from '../initialState'
+import { PersonAction } from './actions'
+import { ADD_PERSON, DELETE_PERSON } from './types'
 
 export const peopleReducer = (state: Person[] = initialState.people, action: PersonAction): Person[] => {
   const { type, payload } = action
@@ -26,7 +26,7 @@ export const personByIdSelector = createSelector(
   peopleSelector,
   (people) => memoize(
     (personId: string) => {
-      return people.filter(person => person.id === personId)
-    }
-  )
+      return people.filter((person) => person.id === personId)
+    },
+  ),
 )

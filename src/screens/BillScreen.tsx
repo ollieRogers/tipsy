@@ -1,9 +1,9 @@
+import { Box, Heading, Text } from 'grommet'
 import * as React from 'react'
 import { useSelector } from 'react-redux'
-import { BillItemList } from '../components/bill/ItemList'
 import { AddBillItemForm } from '../components/bill/AddBillItemForm'
+import { BillItemList } from '../components/bill/ItemList'
 import { billItemsSelector } from '../store/bill/reducer'
-import { Box, Heading, Text } from 'grommet'
 import { billSubtotalSelector } from '../store/bill/reducer'
 import { formatCurrency } from '../util/formatCurrency'
 

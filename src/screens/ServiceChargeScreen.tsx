@@ -1,5 +1,5 @@
+import { Box, Heading } from 'grommet'
 import * as React from 'react'
-import { Box, Heading, Text } from 'grommet'
 import { ServiceChargeForm } from '../components/bill/ServiceChargeForm'
 
 export const ServiceChargeScreen = () => {

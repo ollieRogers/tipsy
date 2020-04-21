@@ -1,14 +1,14 @@
-import * as React from 'react'
 import { useFormik } from 'formik'
-import { useDispatch } from 'react-redux'
+import * as React from 'react'
 import nextId from 'react-id-generator'
+import { useDispatch } from 'react-redux'
 import * as Yup from 'yup'
 
-import { BILL_ITEM_ID_PREFIX } from '../../constants/idPrefix'
-import { ITEM_NAME, ITEM_PRICE } from '../../constants/fieldNames'
-import { addBillItem } from '../../store/bill/actions'
-import { Button, TextInput, FormField, Box, Text } from 'grommet'
+import { Box, Button, FormField, Text, TextInput } from 'grommet'
 import { Add } from 'grommet-icons'
+import { ITEM_NAME, ITEM_PRICE } from '../../constants/fieldNames'
+import { BILL_ITEM_ID_PREFIX } from '../../constants/idPrefix'
+import { addBillItem } from '../../store/bill/actions'
 
 const billItemSchema = Yup.object().shape({
   [ITEM_NAME]: Yup.string()
@@ -34,13 +34,13 @@ export const AddBillItemForm = () => {
         name: submittedValues[ITEM_NAME],
         id: billItemId,
         personId: '',
-        price: parseFloat(submittedValues[ITEM_PRICE])
+        price: parseFloat(submittedValues[ITEM_PRICE]),
       }))
       setTouched(false)
       formik.handleReset(true)
     },
     validationSchema: billItemSchema,
-    validateOnChange: touched
+    validateOnChange: touched,
   })
   const { handleSubmit, handleChange, values, errors } = formik
 

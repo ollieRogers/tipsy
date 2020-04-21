@@ -1,8 +1,8 @@
-import * as React from 'react'
 import { Box, Heading } from 'grommet'
+import * as React from 'react'
 
-import { PeopleList } from '../components/people/PeopleList'
 import { AddPeopleForm } from '../components/people/AddPeopleForm'
+import { PeopleList } from '../components/people/PeopleList'
 
 export const PeopleScreen = () => {
   return (

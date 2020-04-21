@@ -1,15 +1,15 @@
-import React from 'react'
 import { useFormik } from 'formik'
+import { Box, Button, FormField, TextInput } from 'grommet'
+import { Previous, Update } from 'grommet-icons'
+import React from 'react'
 import { useDispatch } from 'react-redux'
-import * as Yup from 'yup'
 import { useSelector } from 'react-redux'
-import { Box, TextInput, Button, FormField } from 'grommet'
-import { Update, Previous } from 'grommet-icons'
+import * as Yup from 'yup'
 
+import { useHistory } from 'react-router-dom'
 import { SERVICE_CHARGE } from '../../constants/fieldNames'
 import { updateServiceCharge } from '../../store/bill/actions'
 import { serviceChargePercSelector } from '../../store/bill/reducer'
-import { useHistory } from 'react-router-dom'
 
 const serviceChargeSchema = Yup.object().shape({
   [SERVICE_CHARGE]: Yup.number()
@@ -35,7 +35,7 @@ export const ServiceChargeForm = () => {
       history.push('/summary')
     },
     validationSchema: serviceChargeSchema,
-    validateOnChange: touched
+    validateOnChange: touched,
   })
 
   const { handleSubmit, handleChange, values, errors } = formik

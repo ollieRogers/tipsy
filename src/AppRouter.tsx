@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Route, Switch, useHistory } from 'react-router-dom'
 
-import { Box, Heading, Button } from 'grommet'
-import { UserAdd, Atm } from 'grommet-icons'
-import { BillScreen,PeopleScreen, SummaryScreen, ServiceChargeScreen } from './screens'
+import { Box, Button, Heading } from 'grommet'
+import { Atm, UserAdd } from 'grommet-icons'
+import { BillScreen, PeopleScreen, ServiceChargeScreen, SummaryScreen } from './screens'
 
 export const AppRouter = () => {
   // TODO: Abstract below to screens

@@ -1,11 +1,11 @@
-import * as React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { peopleSelector, personByIdSelector } from '../../store/people/reducer'
-import { Person, BillItem } from '../../types'
-import { updatebillItemPersonId } from '../../store/bill/actions'
-import { Button, Box, List, Layer } from 'grommet'
+import { Box, Button, Layer, List } from 'grommet'
 import { Add, Edit, UserAdd } from 'grommet-icons'
+import * as React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { updatebillItemPersonId } from '../../store/bill/actions'
+import { peopleSelector, personByIdSelector } from '../../store/people/reducer'
+import { BillItem, Person } from '../../types'
 
 interface PersonSelectProps {
   billItem: BillItem
@@ -16,7 +16,6 @@ interface SelectBoxProps {
   onClose: any
   itemId: string
 }
-
 
 const SelectBox = (props: SelectBoxProps) => {
   const { people, onClose, itemId } = props
@@ -41,7 +40,7 @@ const SelectBox = (props: SelectBoxProps) => {
       </Box>
       <Box width="medium" pad="medium" >
         <Button
-          onClick={()=>history.push('/people')}
+          onClick={() => history.push('/people')}
           icon={<UserAdd/>}
           plain={undefined}
           size="medium"
@@ -52,7 +51,6 @@ const SelectBox = (props: SelectBoxProps) => {
     </Layer>
   )
 }
-
 
 // TODO make this trigger a 'select person' modal
 
@@ -73,10 +71,10 @@ export const PersonSelect = (props: PersonSelectProps) => {
         size="medium"
         gap="xsmall"
         plain={undefined}
-        icon={!!personId ? (<Edit size="small" />):(<Add size="small"/>)}
+        icon={!!personId ? (<Edit size="small" />) : (<Add size="small"/>)}
         label={!!personId ? person.name : 'assign'}
         color="light-1"
-        onClick={()=>setOpen(!open)}
+        onClick={() => setOpen(!open)}
       />
       { open && (
         <SelectBox itemId={id} onClose={onClose} people={people} />
@@ -85,4 +83,3 @@ export const PersonSelect = (props: PersonSelectProps) => {
   )
 
 }
-

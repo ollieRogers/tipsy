@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { BillItem } from '../../types'
-import { useDispatch } from 'react-redux'
-import { deleteBillItem } from '../../store/bill/actions'
 import {Button} from 'grommet'
 import {Trash} from 'grommet-icons'
+import * as React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteBillItem } from '../../store/bill/actions'
+import { BillItem } from '../../types'
 
 interface DeleteBillItemButtonProps {
   item: BillItem

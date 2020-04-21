@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { useSelector } from 'react-redux'
 
+import { Box } from 'grommet'
+import { peopleSelector } from '../../store/people/reducer'
 import { Person } from '../../types'
 import DeletePersonButton from './DeletePersonButton'
-import { peopleSelector } from '../../store/people/reducer'
-import { Box } from 'grommet'
 
 const PeopleListItem = ({ person }: { person: Person }) => {
   return (
@@ -19,7 +19,7 @@ const PeopleListItem = ({ person }: { person: Person }) => {
         'type': 'slideRight',
         'delay': 0,
         'duration': 500,
-        'size': 'xsmall'
+        'size': 'xsmall',
       }}
     >
       {person.name}
@@ -32,7 +32,7 @@ export const PeopleList = () => {
   const people = useSelector(peopleSelector)
   const hasPeople = people.length > 0
 
-  if (!hasPeople) return (<div>Add someone</div>)
+  if (!hasPeople) { return (<div>Add someone</div>) }
 
   return (
     <>
@@ -40,4 +40,3 @@ export const PeopleList = () => {
     </>
   )
 }
-

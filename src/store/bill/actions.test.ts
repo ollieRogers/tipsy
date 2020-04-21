@@ -6,7 +6,7 @@ describe('bill actions', () => {
     name: 'pizza',
     id: 'bill-item-id-25',
     price: 13.99,
-    personId: ''
+    personId: '',
   }
 
   it('should create an action to add a bill item', () => {
@@ -34,5 +34,3 @@ describe('bill actions', () => {
   })
 
 })
-
-

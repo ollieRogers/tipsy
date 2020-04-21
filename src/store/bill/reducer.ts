@@ -1,10 +1,10 @@
-import { ServiceChargeAction } from './actions'
-import { Bill, StateShape, ServiceCharge } from '../../types'
-import { ADD_BILL_ITEM, DELETE_BILL_ITEM, UPDATE_SERVICE_CHARGE, BILL_ITEM_UPDATE_PERSON_ID } from './types'
 import update from 'immutability-helper'
-import { initialState } from '../initialState'
-import { createSelector } from 'reselect'
 import { memoize } from 'lodash'
+import { createSelector } from 'reselect'
+import { Bill, ServiceCharge, StateShape } from '../../types'
+import { initialState } from '../initialState'
+import { ServiceChargeAction } from './actions'
+import { ADD_BILL_ITEM, BILL_ITEM_UPDATE_PERSON_ID, DELETE_BILL_ITEM, UPDATE_SERVICE_CHARGE } from './types'
 
 export const billReducer = (state: Bill = initialState.bill, action: any): Bill => {
   const { type, payload } = action
@@ -18,7 +18,7 @@ export const billReducer = (state: Bill = initialState.bill, action: any): Bill 
       return update(state, { items: { $splice: [[removeIndex, 1]] } })
 
     case BILL_ITEM_UPDATE_PERSON_ID:
-      const [updateItem] = state.items.filter(item => item.id === payload.itemId)
+      const [updateItem] = state.items.filter((item) => item.id === payload.itemId)
       const itemClone = ({ ...updateItem })
       const updateIndex = state.items.indexOf(updateItem)
       itemClone.personId = payload.personId
@@ -33,10 +33,13 @@ export const billItemsSelector = (state: StateShape) => state.bill.items
 
 export const billSubtotalSelector = createSelector(
   billItemsSelector,
-  items => items.reduce((acc, item) => acc + item.price, 0)
+  (items) => items.reduce((acc, item) => acc + item.price, 0),
 )
 
-export const serviceChargeReducer = (state: ServiceCharge = initialState.serviceCharge, action: ServiceChargeAction): ServiceCharge => {
+export const serviceChargeReducer = (
+  state: ServiceCharge = initialState.serviceCharge,
+  action: ServiceChargeAction,
+): ServiceCharge => {
   const { type, payload } = action
   switch (type) {
     case UPDATE_SERVICE_CHARGE:
@@ -51,7 +54,7 @@ export const serviceChargePercSelector = (state: StateShape) => state.serviceCha
 export const serviceChargeValueSelector = createSelector(
   serviceChargePercSelector,
   billSubtotalSelector,
-  (serviceChargePerc, billTotal) => (billTotal * (serviceChargePerc / 100)) || 0
+  (serviceChargePerc, billTotal) => (billTotal * (serviceChargePerc / 100)) || 0,
 )
 
 export const billBreakDownByPersonSelector = createSelector(
@@ -59,13 +62,13 @@ export const billBreakDownByPersonSelector = createSelector(
   serviceChargePercSelector,
   (items, serviceChargePerc) => memoize(
     (personId: string) => {
-      const sumItems = items.filter(item => item.personId === personId)
+      const sumItems = items.filter((item) => item.personId === personId)
       const total = sumItems.reduce((acc, item) => acc + item.price, 0)
       const tip = (total * (serviceChargePerc / 100)) || 0
       return {
         total,
         tip,
       }
-    }
-  )
+    },
+  ),
 )

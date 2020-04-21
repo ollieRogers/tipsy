@@ -9,14 +9,14 @@ describe('people actions', () => {
   it('should create an action to add a person', () => {
     const expectedAction = {
       type: ADD_PERSON,
-      payload: person
+      payload: person,
     }
     expect(addPerson(person)).toEqual(expectedAction)
   })
   it('should create an action to delete a person', () => {
     const expectedAction = {
       type: DELETE_PERSON,
-      payload: person
+      payload: person,
     }
     expect(deletePerson(person)).toEqual(expectedAction)
   })

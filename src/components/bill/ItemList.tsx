@@ -1,9 +1,9 @@
+import { Box, Text } from 'grommet'
 import * as React from 'react'
 import { BillItem } from '../../types'
-import DeleteBillItemButton from './DeleteBillItemButton'
 import { formatCurrency } from '../../util/formatCurrency'
+import DeleteBillItemButton from './DeleteBillItemButton'
 import { PersonSelect } from './PersonSelect'
-import { Box, Text } from 'grommet'
 
 interface ItemListProps {
   items: BillItem[]
@@ -13,7 +13,7 @@ export const BillItemList = (props: ItemListProps) => {
   const { items } = props
   const hasBillItems = items.length > 0
 
-  if (!hasBillItems) return (<div>no Items</div>)
+  if (!hasBillItems) { return (<div>no Items</div>) }
 
   return (
     <>
@@ -23,7 +23,7 @@ export const BillItemList = (props: ItemListProps) => {
             'type': 'slideRight',
             'delay': 0,
             'duration': 500,
-            'size': 'xsmall'
+            'size': 'xsmall',
           }}
           key={billItem.id}
           pad="medium"
@@ -40,4 +40,3 @@ export const BillItemList = (props: ItemListProps) => {
     </>
   )
 }
-

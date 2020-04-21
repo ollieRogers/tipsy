@@ -1,5 +1,5 @@
-import { ADD_PERSON, DELETE_PERSON } from './types'
 import { Person } from '../../types'
+import { ADD_PERSON, DELETE_PERSON } from './types'
 
 export interface AddPerson {
   type: ADD_PERSON
@@ -16,13 +16,13 @@ export type PersonAction = AddPerson | DeletePerson
 export const addPerson = (person: Person): AddPerson => {
   return {
     type: ADD_PERSON,
-    payload: person
+    payload: person,
   }
 }
 
 export const deletePerson = (person: Person): DeletePerson => {
   return {
     type: DELETE_PERSON,
-    payload: person
+    payload: person,
   }
 }

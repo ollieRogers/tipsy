@@ -1,10 +1,10 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 
-import { Person } from '../../types'
-import { deletePerson } from '../../store/people/actions'
 import { Button } from 'grommet'
 import { Trash } from 'grommet-icons'
+import { deletePerson } from '../../store/people/actions'
+import { Person } from '../../types'
 
 interface DeletePersonButtonProps {
   person: Person

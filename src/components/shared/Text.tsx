@@ -32,7 +32,7 @@ export const Text = (props: TextProps) => {
           value,
           onChange,
           disabled,
-          ...htmlProps
+          ...htmlProps,
         }}
       />
 

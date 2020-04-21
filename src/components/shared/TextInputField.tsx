@@ -1,5 +1,5 @@
+import {FormField, TextInput} from 'grommet'
 import * as React from 'react'
-import {TextInput, FormField} from 'grommet'
 
 interface TextInputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string

@@ -1,6 +1,6 @@
+import { Box, Button } from 'grommet'
+import { Atm, Calculator, UserAdd } from 'grommet-icons'
 import * as React from 'react'
-import { Button, Box } from 'grommet'
-import { UserAdd, Atm, Calculator } from 'grommet-icons'
 import { useHistory } from 'react-router-dom'
 
 export const Navigation = () => {
@@ -15,6 +15,7 @@ export const Navigation = () => {
       gap="medium"
       pad="medium"
       width="xxlarge"
+      background="light-1"
     >
       <Button
         icon={<UserAdd color="brand" />}

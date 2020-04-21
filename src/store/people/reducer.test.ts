@@ -1,8 +1,7 @@
-import { peopleReducer, peopleSelector, personByIdSelector } from './reducer'
-import { ADD_PERSON, DELETE_PERSON } from './types'
 import { StateShape } from '../../types/index'
 import { PersonAction } from './actions'
-
+import { peopleReducer, peopleSelector, personByIdSelector } from './reducer'
+import { ADD_PERSON, DELETE_PERSON } from './types'
 
 const person1 = {
   name: 'Ollie',
@@ -24,16 +23,16 @@ describe('people reducer', () => {
     expect(
       peopleReducer([], {
         type: ADD_PERSON,
-        payload: person1
-      })
+        payload: person1,
+      }),
     ).toEqual(
-      [person1]
+      [person1],
     )
     expect(
       peopleReducer([person1], {
         type: ADD_PERSON,
         payload: person2,
-      })
+      }),
     ).toEqual([person1, person2])
   })
 
@@ -42,21 +41,21 @@ describe('people reducer', () => {
       peopleReducer([person1, person2], {
         type: DELETE_PERSON,
         payload: person2,
-      })
+      }),
     ).toEqual([person1])
 
     expect(
       peopleReducer([person1, person2], {
         type: DELETE_PERSON,
         payload: person1,
-      })
+      }),
     ).toEqual([person2])
 
     expect(
       peopleReducer([person1], {
         type: DELETE_PERSON,
         payload: person1,
-      })
+      }),
     ).toEqual([])
   })
 
@@ -64,14 +63,14 @@ describe('people reducer', () => {
     it('returns bill items', () => {
       expect(
         peopleSelector({
-          people: [person1, person2]
-        } as StateShape)
+          people: [person1, person2],
+        } as StateShape),
       ).toEqual([person1, person2])
 
       expect(
         peopleSelector({
-          people: [person1]
-        } as StateShape)
+          people: [person1],
+        } as StateShape),
       ).toEqual([person1])
     })
   })

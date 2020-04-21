@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { peopleReducer } from './people/reducer'
 import { billReducer, serviceChargeReducer } from './bill/reducer'
+import { peopleReducer } from './people/reducer'
 
 export const reducer = combineReducers({
   people: peopleReducer,
